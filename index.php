@@ -61,6 +61,12 @@ try {
     $statementLike->execute(['A%']);
     $usersLike = $statementLike->fetchAll(PDO::FETCH_ASSOC);
 
+    // User Data Insert
+
+//$statementInsert = $db->prepare("INSERT INTO users (firstName,lastName,age,phone,email,city_id) VALUES(?,?,?,?,?,?)");
+//$statementInsert->execute(['Md Salam','Mia','25','01908313996','mdsalam@gmail.com',1]);
+
+
     // User Data update
     //$statementUpdate = $db->prepare("UPDATE users SET firstName=?,lastName=? WHERE id=?");
     //$statementUpdate->execute(['md aziz hakim','hakim',6]);
