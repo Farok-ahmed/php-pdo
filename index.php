@@ -69,6 +69,22 @@ try {
 //    $statementDelete = $db->prepare("DELETE FROM users WHERE id=?");
 //    $statementDelete->execute([7]);
 
+    // Inner Join
+//$statementJoin = $db->prepare("SELECT u.firstName, c.city_name
+//                                    FROM users u
+//                                    JOIN cities c
+//                                    ON u.city_id = c.city_id");
+
+$statementJoin = $db->prepare("SELECT u.firstName, c.city_name 
+                                    FROM users u
+                                    JOIN cities c
+                                    ON u.city_id = c.city_id
+                                    WHERE c.city_name = ?
+                                    ");
+$statementJoin->execute(['Khulna']);
+$usersJoin = $statementJoin->fetchAll(PDO::FETCH_ASSOC);
+
+
     echo "<table>";
     echo '<tr>
         <th>ID</th>
@@ -101,6 +117,10 @@ print_r($total);
 
     // Like
     print_r($usersLike);
+
+    // inner join
+print_r("Inner Join");
+print_r($usersJoin);
 
    echo "</pre>";
 
